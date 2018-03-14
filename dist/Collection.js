@@ -131,7 +131,7 @@ var Collection = /** @class */ (function () {
         var id = utils_1.getProp(instance, instance.static.idAttribute);
         var existing = this.find(modelType, id);
         if (existing) {
-            existing.update(model);
+            existing.update(existing.static.preprocess(model));
             return existing;
         }
         this.__modelHash[modelType] = this.__modelHash[modelType] || {};

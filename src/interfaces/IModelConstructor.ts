@@ -73,6 +73,17 @@ interface IModelConstructor {
    * @memberOf IModelConstructor
    */
   autoIdFunction(): number|string;
+
+  /**
+   * Function that can process the received data (e.g. from an API) before
+   * it's transformed into a model
+   *
+   * @argument {object} rawData - Raw data
+   * @returns {object} Transformed data
+   *
+   * @memberOf Model
+   */
+  preprocess(rawData: object): object;
 }
 
 export default IModelConstructor;

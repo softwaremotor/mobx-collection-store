@@ -164,7 +164,7 @@ export class Collection implements ICollection {
     const id = getProp<string|number>(instance, instance.static.idAttribute);
     const existing = this.find(modelType, id);
     if (existing) {
-      existing.update(model);
+      existing.update(existing.static.preprocess(model));
       return existing;
     }
 
